@@ -44,8 +44,8 @@ function Estimation() {
   }, []);
 
   return (
-   <div className="flex flex-wrap justify-around">
-       {console.info(brands)}
+    <div className="flex flex-wrap justify-around">
+      {console.info(brands)}
       {console.info(models)}
       {console.info(networks)}
       <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-5/12">
