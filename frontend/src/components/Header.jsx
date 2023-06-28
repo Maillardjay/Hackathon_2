@@ -17,13 +17,13 @@ function Header() {
           <div>
             <ul className="flex flex-row font-medium p-2 mt-2 rounded bg-gray-50">
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/">Home</Link>
+                <Link to="/">Accueil</Link>
               </li>
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/reprise">Reprise</Link>
+                <Link to="/estimation">Estimer un téléphone</Link>
               </li>
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                FAQ
+                <Link to="/faq">FAQ</Link>
               </li>
             </ul>
           </div>
