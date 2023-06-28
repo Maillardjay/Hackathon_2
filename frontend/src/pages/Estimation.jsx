@@ -5,9 +5,14 @@ import Scene from "../Scene";
 
 function Estimation() {
   // const [phones, setPhones] = useState();
-  const [brands, setBrands] = useState();
-  const [models, setModels] = useState();
-  const [networks, setNetworks] = useState();
+  const [brands, setBrands] = useState([]);
+  const [models, setModels] = useState([]);
+  const [networks, setNetworks] = useState([]);
+  const [rams, setRams] = useState([]);
+  const [storages, setStorages] = useState([]);
+  const [screensizes, setScreensizes] = useState([]);
+  const [states, setStates] = useState([]);
+  const [oss, setOss] = useState([]);
 
   // const getPhones = () => {
   //   fetch(`${import.meta.env.VITE_BACKEND_URL}/phone`)
@@ -37,73 +42,146 @@ function Estimation() {
       .catch((err) => console.error(err));
   };
 
+  const getRam = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/networks`)
+      .then((res) => res.json())
+      .then((data) => setRams(data))
+      .catch((err) => console.error(err));
+  };
+
+  const getStorages = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/storages`)
+      .then((res) => res.json())
+      .then((data) => setStorages(data))
+      .catch((err) => console.error(err));
+  };
+
+  const getScreensizes = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/screensize`)
+      .then((res) => res.json())
+      .then((data) => setScreensizes(data))
+      .catch((err) => console.error(err));
+  };
+
+  const getStates = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/states`)
+      .then((res) => res.json())
+      .then((data) => setStates(data))
+      .catch((err) => console.error(err));
+  };
+
+  const getOss = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/os`)
+      .then((res) => res.json())
+      .then((data) => setOss(data))
+      .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
     getBrands();
     getModels();
     getNetworks();
+    getStorages();
+    getRam();
+    getScreensizes();
+    getStates();
+    getOss();
   }, []);
 
   return (
     <div className="flex flex-wrap justify-around">
-      {console.info(brands)}
-      {console.info(models)}
-      {console.info(networks)}
       <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-5/12">
         <h1 className="flex rounded-md content-center pr-5 pt-10 pl-2 text-2xl font-bold m-8">
           Enregistrement de l'appareil
         </h1>
 
         <form className="flex flex-col justify-center mr-10 ml-10">
-          <label
-            htmlFor="Marque de l'appareil"
-            className="flex flex-col font-semibold"
-          >
+          <label htmlFor="Brand" className="flex flex-col font-semibold">
             {" "}
             Quelle est la marque de l'appareil ?
             <select className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black ">
               <option className="opacity-50">Marque</option>
-              <option>Apple</option>
-              <option>Samsung</option>
+              {brands.map((brand) => (
+                <option key={brand.id} value={brand.id}>
+                  {brand.name}
+                </option>
+              ))}
             </select>
           </label>
-          <label htmlFor="Modèle" className="flex flex-col font-semibold">
+          <label htmlFor="Model" className="flex flex-col font-semibold">
             Quel est le modèle de l'appareil ?
             <select className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black ">
               <option value="">Modèle</option>
-              <option>14 Pro</option>
-              <option>S22</option>
+              {models.map((model) => (
+                <option key={model.id} value={model.id}>
+                  {model.name}
+                </option>
+              ))}
             </select>
           </label>
-          <label htmlFor="Stockage" className="flex flex-col font-semibold">
+          <label htmlFor="Model" className="flex flex-col font-semibold">
+            Quel est le système d'exploitation de votre appareil ?
+            <select className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black ">
+              <option value="">Os</option>
+              {oss.map((os) => (
+                <option key={os.id} value={os.id}>
+                  {os.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="Model" className="flex flex-col font-semibold">
+            Quel est le réseau de votre appareil ?
+            <select className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black ">
+              <option value="">Réseau</option>
+              {networks.map((network) => (
+                <option key={network.id} value={network.id}>
+                  {network.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="Storage" className="flex flex-col font-semibold">
             Quelle est sa capacité de stockage ?
             <select className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black ">
               <option value="">Stockage</option>
-              <option>128Go</option>
-              <option>512Go</option>
+              {storages.map((storage) => (
+                <option key={storage.id} value={storage.id}>
+                  {storage.capacity}
+                </option>
+              ))}
             </select>
           </label>
           <label htmlFor="RAM" className="flex flex-col font-semibold">
             De combien de Ram dispose t-il ?
             <select className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black ">
               <option value="">RAM</option>
-              <option>32Go</option>
-              <option>128Go</option>
+              {rams.map((ram) => (
+                <option key={ram.id} value={ram.id}>
+                  {ram.name}
+                </option>
+              ))}
             </select>
           </label>
           <label htmlFor="Screen" className="flex flex-col font-semibold">
             Quelle est la taille de l'écran ?
             <select className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black ">
               <option>Taille de l'écran</option>
-              <option>5.8"</option>
-              <option>6.1"</option>
+              {screensizes.map((screensize) => (
+                <option key={screensize.id} value={screensize.id}>
+                  {screensize.size}
+                </option>
+              ))}
             </select>
           </label>
-          <label htmlFor="Grading" className="flex flex-col font-semibold">
+          <label htmlFor="State" className="flex flex-col font-semibold">
             Quel est l'état de l'appareil ?
             <select className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black ">
-              <option value="">Etat de l'appareil</option>
-              <option>"Bon Etat"</option>
-              <option>"Comme Neuf"</option>
+              {states.map((state) => (
+                <option key={state.id} value={state.id}>
+                  {state.name}
+                </option>
+              ))}
             </select>
           </label>
           <label htmlFor="IMEI" className="flex flex-col font-semibold">
@@ -119,16 +197,7 @@ function Estimation() {
           </label>
 
           <div className="pt-10">
-            <p className="pb-5 font-bold">Accessoires fournit :</p>
-            <div className="topping flex">
-              <input
-                type="checkbox"
-                id="topping"
-                name="topping"
-                value="Ecouteurs"
-              />
-              <p className="pl-2">Ecouteurs</p>
-            </div>
+            <p className="pb-5 font-bold">Accessoires fournis :</p>
             <div className="topping flex">
               <input
                 className=""
@@ -138,6 +207,16 @@ function Estimation() {
                 value="Chargeur"
               />
               <p className="pl-2">Chargeur</p>
+            </div>
+            <div className="topping flex">
+              <input
+                className=""
+                type="checkbox"
+                id="topping"
+                name="topping"
+                value="Cable"
+              />
+              <p className="pl-2">Cable</p>
             </div>
           </div>
         </form>
