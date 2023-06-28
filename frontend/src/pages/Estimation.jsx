@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function Estimation() {
+  // const [phones, setPhones] = useState();
+  const [brands, setBrands] = useState();
+  const [models, setmodels] = useState();
+
+  // const getPhones = () => {
+  //   fetch(`${import.meta.env.VITE_BACKEND_URL}/phone`)
+  //     .then((res) => res.json())
+  //     .then((data) => setPhones(data))
+  //     .catch((err) => console.error(err));
+  // };
+
+  const getBrands = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/brands`)
+      .then((res) => res.json())
+      .then((data) => setBrands(data))
+      .catch((err) => console.error(err));
+  };
+
+  const getModels = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/models`)
+      .then((res) => res.json())
+      .then((data) => setmodels(data))
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    getBrands();
+    getModels();
+  }, []);
+
   return (
     <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-1/2">
+      {console.info(brands)}
+      {console.info(models)}
       <h1 className="flex rounded-md content-center pr-5 pt-10 pl-2 text-2xl font-bold m-8">
         Enregistrement de l'appareil
       </h1>

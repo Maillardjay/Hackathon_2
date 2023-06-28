@@ -18,4 +18,20 @@ router.put("/phone/:id", phoneControllers.edit);
 router.post("/phone", phoneControllers.add);
 router.delete("/phone/:id", phoneControllers.destroy);
 
+const brandControllers = require("./controllers/brandController");
+
+router.get("/brands", brandControllers.browse);
+router.get("/brands/:id", brandControllers.read);
+router.put("/brands/:id", brandControllers.edit);
+router.post("/brands", brandControllers.add);
+router.delete("/brands/:id", brandControllers.destroy);
+
+const modelControllers = require("./controllers/modelController");
+
+router.get("/models", modelControllers.browse);
+router.get("/models/:id", modelControllers.read);
+router.put("/models/:id", modelControllers.edit);
+router.post("/models", modelControllers.add);
+router.delete("/models/:id", modelControllers.destroy);
+
 module.exports = router;
