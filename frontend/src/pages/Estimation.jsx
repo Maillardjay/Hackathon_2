@@ -6,8 +6,8 @@ import Scene from "../Scene";
 
 function Estimation() {
   return (
-    <div className="flex flex-wrap">
-      <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-1/2">
+    <div className="flex flex-wrap justify-around">
+      <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-5/12">
         <h1 className="flex rounded-md content-center pr-5 pt-10 pl-2 text-2xl font-bold m-8">
           Enregistrement de l'appareil
         </h1>
@@ -110,7 +110,7 @@ function Estimation() {
           </button>
         </div>
       </div>
-      <div className="w-2/5">
+      <div className="w-5/12">
         <Canvas>
           <ambientLight />
           <OrbitControls />
