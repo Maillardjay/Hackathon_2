@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="header">
       <nav>
-        <div className="flex flex-wrap items-center justify-between mx-auto p-2">
+        <div className="flex flex-wrap min-[320px]:flex-col min-[450px]:flex-row items-center justify-between mx-auto p-2 ">
           <img
             src={logo}
             className="w-40 mr-3 pt-3 pb-3 max-[435px]:w-15
