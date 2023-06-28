@@ -2,6 +2,7 @@ import React from "react";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import Scene from "../Scene";
 
 function Estimation() {
   return (
@@ -109,8 +110,14 @@ function Estimation() {
           </button>
         </div>
       </div>
-      <div className="flex flex-col w-1/2 h-full">
-        <Canvas></Canvas>
+      <div className="w-2/5">
+        <Canvas>
+          <ambientLight />
+          <OrbitControls />
+          <Suspense fallback={null}>
+            <Scene />
+          </Suspense>
+        </Canvas>
       </div>
     </div>
   );
