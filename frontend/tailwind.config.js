@@ -11,6 +11,9 @@ export default {
       rose: "#E62460",
       text_color: "#002743",
     },
+    fontFamily: {
+      sans: ["Barlow"],
+    },
     extend: {},
   },
   plugins: [],
