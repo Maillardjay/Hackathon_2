@@ -49,6 +49,36 @@ const ModelManager = require("./ModelManager");
 models.model = new ModelManager();
 models.model.setDatabase(pool);
 
+const NetworkManager = require("./NetworkManager");
+
+models.network = new NetworkManager();
+models.network.setDatabase(pool);
+
+const OsManager = require("./OsManager");
+
+models.os = new OsManager();
+models.os.setDatabase(pool);
+
+const RamManager = require("./RamManager");
+
+models.ram = new RamManager();
+models.ram.setDatabase(pool);
+
+const StorageManager = require("./StorageManager");
+
+models.storage = new StorageManager();
+models.storage.setDatabase(pool);
+
+const StateManager = require("./StateManager");
+
+models.state = new StateManager();
+models.state.setDatabase(pool);
+
+const ScreenSizeManager = require("./ScreensizeManager");
+
+models.screensize = new ScreenSizeManager();
+models.screensize.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 

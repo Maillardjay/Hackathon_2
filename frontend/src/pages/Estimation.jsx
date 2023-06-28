@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 function Estimation() {
   // const [phones, setPhones] = useState();
   const [brands, setBrands] = useState();
-  const [models, setmodels] = useState();
+  const [models, setModels] = useState();
+  const [networks, setNetworks] = useState();
 
   // const getPhones = () => {
   //   fetch(`${import.meta.env.VITE_BACKEND_URL}/phone`)
@@ -22,19 +23,28 @@ function Estimation() {
   const getModels = () => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/models`)
       .then((res) => res.json())
-      .then((data) => setmodels(data))
+      .then((data) => setModels(data))
+      .catch((err) => console.error(err));
+  };
+
+  const getNetworks = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/networks`)
+      .then((res) => res.json())
+      .then((data) => setNetworks(data))
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
     getBrands();
     getModels();
+    getNetworks();
   }, []);
 
   return (
     <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-1/2">
       {console.info(brands)}
       {console.info(models)}
+      {console.info(networks)}
       <h1 className="flex rounded-md content-center pr-5 pt-10 pl-2 text-2xl font-bold m-8">
         Enregistrement de l'appareil
       </h1>
