@@ -1,10 +1,10 @@
 import React from "react";
 
-function Reprise() {
+function Estimation() {
   return (
     <div className="flex-1">
       <h1 className="text-center pr-5 pt-5 text-2xl font-bold">
-        Enregistrement de l'appareil
+        Estimation du téléphone
       </h1>
 
       <form className="ml-10">
@@ -75,7 +75,7 @@ function Reprise() {
         </label>
 
         <div className="Accesories">
-          Accessoires fournit:
+          Accessoires fournis :
           <div className="topping">
             <input
               type="checkbox"
@@ -122,4 +122,4 @@ function Reprise() {
     </div>
   );
 }
-export default Reprise;
+export default Estimation;
