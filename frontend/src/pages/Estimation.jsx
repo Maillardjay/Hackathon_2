@@ -1,11 +1,53 @@
-import React, { Suspense } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Scene from "../Scene";
 
 function Estimation() {
+  // const [phones, setPhones] = useState();
+  const [brands, setBrands] = useState();
+  const [models, setModels] = useState();
+  const [networks, setNetworks] = useState();
+
+  // const getPhones = () => {
+  //   fetch(`${import.meta.env.VITE_BACKEND_URL}/phone`)
+  //     .then((res) => res.json())
+  //     .then((data) => setPhones(data))
+  //     .catch((err) => console.error(err));
+  // };
+
+  const getBrands = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/brands`)
+      .then((res) => res.json())
+      .then((data) => setBrands(data))
+      .catch((err) => console.error(err));
+  };
+
+  const getModels = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/models`)
+      .then((res) => res.json())
+      .then((data) => setModels(data))
+      .catch((err) => console.error(err));
+  };
+
+  const getNetworks = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/networks`)
+      .then((res) => res.json())
+      .then((data) => setNetworks(data))
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    getBrands();
+    getModels();
+    getNetworks();
+  }, []);
+
   return (
     <div className="flex flex-wrap justify-around">
+      {console.info(brands)}
+      {console.info(models)}
+      {console.info(networks)}
       <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-5/12">
         <h1 className="flex rounded-md content-center pr-5 pt-10 pl-2 text-2xl font-bold m-8">
           Enregistrement de l'appareil
