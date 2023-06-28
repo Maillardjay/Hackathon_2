@@ -110,7 +110,7 @@ function Estimation() {
         </div>
       </div>
       <div className="flex flex-col w-1/2 h-full">
-        <div className=""></div>
+        <Canvas></Canvas>
       </div>
     </div>
   );
