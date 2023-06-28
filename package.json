@@ -29,5 +29,10 @@
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "husky": "^8.0.3"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.77.6",
+    "@react-three/fiber": "^8.13.4",
+    "three": "^0.153.0"
   }
 }
