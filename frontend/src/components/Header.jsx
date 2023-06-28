@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 function Header() {
@@ -16,7 +17,10 @@ function Header() {
           <div>
             <ul className="flex flex-row font-medium p-2 mt-2 rounded bg-gray-50">
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                Ajouter un smartphone
+                <Link to="/">Home</Link>
+              </li>
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
+                <Link to="/reprise">Reprise</Link>
               </li>
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
                 FAQ
