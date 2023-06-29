@@ -1,8 +1,10 @@
+/* eslint-disable react/no-unknown-property */
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
   const { nodes, materials } = useGLTF("Scene2/scene.gltf");
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
