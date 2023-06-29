@@ -2,7 +2,7 @@
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("./scene.gltf");
+  const { nodes, materials } = useGLTF("Scene1/scene.gltf");
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <group {...props} dispose={null}>
@@ -132,6 +132,6 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/scene.gltf");
+useGLTF.preload("Scene1/scene.gltf");
 
 export default Model;

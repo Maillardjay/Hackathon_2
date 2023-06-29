@@ -1,11 +1,13 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import Scene1 from "../Scene1";
+import Scene2 from "../Scene2";
+import Scene3 from "../Scene3";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ToastContainer, toast } from "react-toastify";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "react-toastify/dist/ReactToastify.css";
-import Scene from "../Scene";
 
 function Estimation() {
   const phoneModel = {
@@ -191,7 +193,23 @@ function Estimation() {
     });
   };
 
+
+  // eslint-disable-next-line consistent-return
+  const selectScene = () => {
+    if (brand.brand_id === 1) {
+      return <Scene1 />;
+    }
+    if (brand.brand_id === 2) {
+      return <Scene2 />;
+    }
+    if (brand.brand_id === 3) {
+      return <Scene3 />;
+    }
+    if (brand.brand_id === null) return null;
+  };
+
   const notify = () => toast("Le téléphone a bien été enregistré !");
+
 
   return (
     <div className="flex flex-wrap justify-around">
@@ -425,9 +443,7 @@ function Estimation() {
         <Canvas>
           <ambientLight />
           <OrbitControls />
-          <Suspense fallback={null}>
-            <Scene />
-          </Suspense>
+          <Suspense fallback={null}>{selectScene()}</Suspense>
         </Canvas>
       </div>
     </div>
