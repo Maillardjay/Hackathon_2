@@ -2,16 +2,20 @@
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("Scene4/scene.gltf");
+  const { nodes, materials } = useGLTF("Scene5/scene.gltf");
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
-          <group position={[-0.04, 0.87, -0.62]} rotation={[Math.PI / 2, 0, 0]}>
+          <group
+            position={[-12.23, 639.09, 19.83]}
+            rotation={[-Math.PI / 2, 0, 0]}
+            scale={100}
+          >
             <mesh
-              geometry={nodes.Object_4.geometry}
-              material={materials.redminote8T}
+              geometry={nodes.Cube__0.geometry}
+              material={materials["Scene_-_Root"]}
             />
           </group>
         </group>
@@ -20,6 +24,6 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("Scene4/scene.gltf");
+useGLTF.preload("Scene5/scene.gltf");
 
 export default Model;
