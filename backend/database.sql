@@ -97,7 +97,7 @@ INSERT INTO models (name, image_src, image_alt, brands_id)
 VALUES ('iPhone 14 Pro','https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d1eh9yux7w8iql.cloudfront.net/product_images/781137_66072400-f3bc-43cf-8156-ffb427cb9666.jpg', 'iphone14 pro',1);
 
 INSERT INTO models (name, image_src, image_alt, brands_id)
-VALUES ('iPhone 14', 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch-blue_AV1_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1661026557363', 'iphone14', 1);
+VALUES ('iPhone 14', 'https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-14-pro-max-deep-purple-back.png?v=35', 'iphone14', 1);
 
 INSERT INTO models (name, image_src, image_alt, brands_id)
 VALUES ('Galaxy S23', 'https://cdn.lesnumeriques.com/optim/product/71/71213/92553e9f-galaxy-s23__450_400.png', 'GalaxyS23', 2);
