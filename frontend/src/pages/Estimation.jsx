@@ -6,14 +6,15 @@ import Scene from "../Scene";
 function Estimation() {
   const phoneModel = {
     IMEI: "",
-    is_loader_included: "",
-    is_cable_included: "",
+    is_loader_included: "0",
+    is_cable_included: "0",
     model_id: "",
     network_id: "",
     RAM_id: "",
     storage_id: "",
     screen_size_id: "",
     state_id: "",
+    os_id: "",
   };
 
   const [brands, setBrands] = useState([]);
@@ -108,83 +109,65 @@ function Estimation() {
     estimatePrice();
   }, [phone]);
 
-  const getBrands = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/brands`)
-      .then((res) => res.json())
-      .then((data) => setBrands(data))
-      .catch((err) => console.error(err));
-  };
+  const getData = async () => {
+    const urls = [
+      "/brands",
+      "/models",
+      "/networks",
+      "/ram",
+      "/storages",
+      "/screensize",
+      "/states",
+      "/os",
+    ];
 
-  const getModels = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/models`)
-      .then((res) => res.json())
-      .then((data) => setModels(data))
-      .catch((err) => console.error(err));
-  };
-
-  const getNetworks = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/networks`)
-      .then((res) => res.json())
-      .then((data) => setNetworks(data))
-      .catch((err) => console.error(err));
-  };
-
-  const getRam = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/ram`)
-      .then((res) => res.json())
-      .then((data) => setRams(data))
-      .catch((err) => console.error(err));
-  };
-
-  const getStorages = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/storages`)
-      .then((res) => res.json())
-      .then((data) => setStorages(data))
-      .catch((err) => console.error(err));
-  };
-
-  const getScreensizes = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/screensize`)
-      .then((res) => res.json())
-      .then((data) => setScreensizes(data))
-      .catch((err) => console.error(err));
-  };
-
-  const getStates = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/states`)
-      .then((res) => res.json())
-      .then((data) => setStates(data))
-      .catch((err) => console.error(err));
-  };
-
-  const getOss = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/os`)
-      .then((res) => res.json())
-      .then((data) => setOss(data))
-      .catch((err) => console.error(err));
+    try {
+      const data = await Promise.all(
+        urls.map((url) =>
+          fetch(`${import.meta.env.VITE_BACKEND_URL}${url}`).then((response) =>
+            response.json()
+          )
+        )
+      );
+      setBrands(data[0]);
+      setModels(data[1]);
+      setNetworks(data[2]);
+      setRams(data[3]);
+      setStorages(data[4]);
+      setScreensizes(data[5]);
+      setStates(data[6]);
+      setOss(data[7]);
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
   };
 
   useEffect(() => {
-    getBrands();
-    getModels();
-    getNetworks();
-    getStorages();
-    getRam();
-    getScreensizes();
-    getStates();
-    getOss();
+    getData();
   }, []);
 
   const addPhone = (event) => {
     event.preventDefault();
     fetch(`${import.meta.env.VITE_BACKEND_URL}/phone`, {
       method: "POST",
+      body: JSON.stringify({ ...phone, price }),
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...phone, price }),
-    });
+    })
+      .then(() => {
+        setPhone({
+          ...phoneModel,
+          IMEI: "",
+        });
+        setBrand({
+          brand_id: "",
+        });
+        setPrice(0);
+        getData();
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -202,6 +185,7 @@ function Estimation() {
             {" "}
             Quelle est la marque de l'appareil ?
             <select
+              value={brand.brand_id}
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
               required
               name="brand_id"
@@ -225,6 +209,7 @@ function Estimation() {
               required
               name="model_id"
               type="text"
+              value={phone.model_id}
               onChange={(event) =>
                 handlePhone(event.target.name, +event.target.value)
               }
@@ -246,13 +231,17 @@ function Estimation() {
               required
               name="os_id"
               type="text"
+              onChange={(event) =>
+                handlePhone(event.target.name, +event.target.value)
+              }
             >
               <option value="">Os</option>
-              {oss.map((os) => (
-                <option key={os.id} value={os.id}>
-                  {os.name}
-                </option>
-              ))}
+              {brand.brand_id &&
+                oss.map((os) => (
+                  <option key={os.id} value={os.id}>
+                    {os.name}
+                  </option>
+                ))}
             </select>
           </label>
           <label htmlFor="Model" className="flex flex-col font-semibold">
@@ -267,11 +256,12 @@ function Estimation() {
               }
             >
               <option value="">Réseau</option>
-              {networks.map((network) => (
-                <option key={network.id} value={network.id}>
-                  {network.name}
-                </option>
-              ))}
+              {brand.brand_id &&
+                networks.map((network) => (
+                  <option key={network.id} value={network.id}>
+                    {network.name}
+                  </option>
+                ))}
             </select>
           </label>
           <label htmlFor="Storage" className="flex flex-col font-semibold">
@@ -286,11 +276,12 @@ function Estimation() {
               }
             >
               <option value="">Stockage</option>
-              {storages.map((storage) => (
-                <option key={storage.id} value={storage.id}>
-                  {storage.capacity}
-                </option>
-              ))}
+              {brand.brand_id &&
+                storages.map((storage) => (
+                  <option key={storage.id} value={storage.id}>
+                    {storage.capacity}
+                  </option>
+                ))}
             </select>
           </label>
           <label htmlFor="RAM" className="flex flex-col font-semibold">
@@ -305,11 +296,12 @@ function Estimation() {
               }
             >
               <option value="">RAM</option>
-              {rams.map((ram) => (
-                <option key={ram.id} value={ram.id}>
-                  {ram.name}
-                </option>
-              ))}
+              {brand.brand_id &&
+                rams.map((ram) => (
+                  <option key={ram.id} value={ram.id}>
+                    {ram.name}
+                  </option>
+                ))}
             </select>
           </label>
           <label htmlFor="Screen" className="flex flex-col font-semibold">
@@ -324,11 +316,12 @@ function Estimation() {
               }
             >
               <option>Taille de l'écran</option>
-              {screensizes.map((screensize) => (
-                <option key={screensize.id} value={screensize.id}>
-                  {screensize.size}
-                </option>
-              ))}
+              {brand.brand_id &&
+                screensizes.map((screensize) => (
+                  <option key={screensize.id} value={screensize.id}>
+                    {screensize.size}
+                  </option>
+                ))}
             </select>
           </label>
           <label htmlFor="State" className="flex flex-col font-semibold">
@@ -342,11 +335,13 @@ function Estimation() {
                 handlePhone(event.target.name, +event.target.value)
               }
             >
-              {states.map((state) => (
-                <option key={state.id} value={state.id}>
-                  {state.name}
-                </option>
-              ))}
+              <option>Etat du téléphone</option>
+              {brand.brand_id &&
+                states.map((state) => (
+                  <option key={state.id} value={state.id}>
+                    {state.name}
+                  </option>
+                ))}
             </select>
           </label>
           <label htmlFor="IMEI" className="flex flex-col font-semibold">
@@ -361,7 +356,7 @@ function Estimation() {
               name="IMEI"
               value={phone.IMEI}
               onChange={(event) =>
-                handlePhone(event.target.name, +event.target.value)
+                handlePhone(event.target.name, event.target.value)
               }
             />
           </label>
