@@ -3,15 +3,15 @@ import AccordionItem from "../components/AccordeonItem";
 
 function Accordion() {
   return (
-    <section className="text-text_color relative z-20 overflow-hidden bg-white pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+    <section className="text-text_color relative z-20 overflow-hidden bg-white pt-15 pb-20 lg:pt-[120px] lg:pb-[90px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-              <span className="mb-2 block text-lg font-semibold text-primary">
+              <span className="mb-2 block text-lg font-semibold text-primary mt-8">
                 FAQ
               </span>
-              <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
+              <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl max-[450px]:mx-3 md:text-[40px]">
                 Une question ? On a sûrement la réponse !
               </h2>
             </div>
@@ -19,7 +19,7 @@ function Accordion() {
         </div>
 
         <div className="flex flex-wrap">
-          <div className="w-full px-4 lg:w-1/2">
+          <div className="w-full px-4 mr-8 lg:w-1/2">
             <AccordionItem
               header="Comment vérifier le modèle de l'appareil ?"
               text="
@@ -39,7 +39,7 @@ Sinon, allez dans Réglages > Général > Informations et vous trouverez le nom 
               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Interdum varius sit amet mattis vulputate enim. Elit at imperdiet dui accumsan sit."
             />
           </div>
-          <div className="w-full px-4 lg:w-1/2">
+          <div className="w-full px-4 mr-8 lg:w-1/2">
             <AccordionItem
               header="Comment vérifier le modèle de l'appareil"
               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Interdum varius sit amet mattis vulputate enim. Elit at imperdiet dui accumsan sit."

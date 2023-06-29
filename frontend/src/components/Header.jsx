@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="header">
       <nav>
-        <div className="flex flex-wrap min-[320px]:flex-col min-[450px]:flex-row items-center justify-between mx-auto p-2 ">
+        <div className="flex flex-wrap min-[320px]:flex-col min-[635px]:flex-row items-center justify-between mx-auto p-2 ">
           <Link to="/">
             <img
               src={logo}
@@ -17,7 +17,7 @@ function Header() {
             />
           </Link>
           <div>
-            <ul className="flex flex-row font-medium p-2 mt-2 rounded bg-gray-50">
+            <ul className="flex flex-row text-center font-medium p-2 mt-2 rounded bg-gray-50 ">
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
                 <Link to="/">Accueil</Link>
               </li>
