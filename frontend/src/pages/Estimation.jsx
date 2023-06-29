@@ -176,9 +176,26 @@ function Estimation() {
   const selectScene = () => {
     if (brand.brand_id === 1) {
       return <Scene1 />;
-    } else if (brand.brand_id === 2) {
+    }
+    if (brand.brand_id === 2) {
       return <Scene2 />;
     }
+    if (brand.brand_id === 3) {
+      return <Scene3 />;
+    }
+    if (brand.brand_id === 4) {
+      return <Scene4 />;
+    }
+    if (brand.brand_id === 5) {
+      return <Scene5 />;
+    }
+    if (brand.brand_id === 6) {
+      return <Scene6 />;
+    }
+    if (brand.brand_id === 7) {
+      return <Scene7 />;
+    }
+    if (brand.brand_id === null) return null;
   };
 
   return (
@@ -415,10 +432,7 @@ function Estimation() {
         <Canvas>
           <ambientLight />
           <OrbitControls />
-          <Suspense fallback={null}>
-            {selectScene()}
-            {/* <Scene2 /> */}
-          </Suspense>
+          <Suspense fallback={null}>{selectScene()}</Suspense>
         </Canvas>
       </div>
     </div>
