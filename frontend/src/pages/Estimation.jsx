@@ -4,8 +4,24 @@ import { OrbitControls } from "@react-three/drei";
 import Scene1 from "../Scene1";
 import Scene2 from "../Scene2";
 import Scene3 from "../Scene3";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { ToastContainer, toast } from "react-toastify";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "react-toastify/dist/ReactToastify.css";
 
 function Estimation() {
+  const phoneModel = {
+    IMEI: "",
+    is_loader_included: "",
+    is_cable_included: "",
+    model_id: "",
+    network_id: "",
+    RAM_id: "",
+    storage_id: "",
+    screen_size_id: "",
+    state_id: "",
+  };
+
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
   const [networks, setNetworks] = useState([]);
@@ -15,29 +31,28 @@ function Estimation() {
   const [states, setStates] = useState([]);
   const [oss, setOss] = useState([]);
   const [price, setPrice] = useState(0);
-
   const [brand, setBrand] = useState({
     brand_id: "",
   });
-
-  const [phone, setPhone] = useState({
-    IMEI: "",
-    is_loader_included: 0,
-    is_cable_included: 0,
-    model_id: "",
-    network_id: "",
-    RAM_id: "",
-    storage_id: "",
-    screensize_id: "",
-    state_id: "",
-  });
+  const [phone, setPhone] = useState(phoneModel);
+  const [isChargerIncluded, setIsChargerIncluded] = useState(false);
+  const [isCableIncluded, setIsCableIncluded] = useState(false);
 
   const handleBrand = (name, value) => {
     setBrand({ ...brand, [name]: value });
   };
-
   const handlePhone = (name, value) => {
     setPhone({ ...phone, [name]: value });
+  };
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    if (name === "Chargeur") {
+      setIsChargerIncluded(checked);
+      setPhone({ ...phone, is_loader_included: checked ? "1" : "0" });
+    } else if (name === "Cable") {
+      setIsCableIncluded(checked);
+      setPhone({ ...phone, is_cable_included: checked ? "1" : "0" });
+    }
   };
 
   const isSalable = () => {
@@ -168,11 +183,16 @@ function Estimation() {
 
   const addPhone = (event) => {
     event.preventDefault();
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/phones`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/phone`, {
       method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ ...phone, price }),
     });
   };
+
 
   // eslint-disable-next-line consistent-return
   const selectScene = () => {
@@ -188,6 +208,9 @@ function Estimation() {
     if (brand.brand_id === null) return null;
   };
 
+  const notify = () => toast("Le téléphone a bien été enregistré !");
+
+
   return (
     <div className="flex flex-wrap justify-around">
       <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-5/12">
@@ -199,11 +222,11 @@ function Estimation() {
           onSubmit={addPhone}
           className="flex flex-col justify-center mr-10 ml-10"
         >
-          <label htmlFor="Brand" className="flex flex-col font-semibold">
+          <label htmlFor="Brand" className="flex flex-col ">
             {" "}
             Quelle est la marque de l'appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 font-medium"
               required
               name="brand_id"
               type="text"
@@ -219,10 +242,10 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="Model" className="flex flex-col font-semibold">
+          <label htmlFor="Model" className="flex flex-col font-medium">
             Quel est le modèle de l'appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color "
               required
               name="model_id"
               type="text"
@@ -240,10 +263,10 @@ function Estimation() {
                 ))}
             </select>
           </label>
-          <label htmlFor="Model" className="flex flex-col font-semibold">
+          <label htmlFor="Model" className="flex flex-col font-medium">
             Quel est le système d'exploitation de votre appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color  "
               required
               name="os_id"
               type="text"
@@ -256,10 +279,10 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="Model" className="flex flex-col font-semibold">
+          <label htmlFor="Model" className="flex flex-col font-medium">
             Quel est le réseau de votre appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color  "
               required
               name="network_id"
               type="text"
@@ -275,7 +298,7 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="Storage" className="flex flex-col font-semibold">
+          <label htmlFor="Storage" className="flex flex-col font-medium">
             Quelle est sa capacité de stockage ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
@@ -294,7 +317,7 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="RAM" className="flex flex-col font-semibold">
+          <label htmlFor="RAM" className="flex flex-col font-medium">
             De combien de Ram dispose t-il ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
@@ -313,12 +336,12 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="Screen" className="flex flex-col font-semibold">
+          <label htmlFor="Screen" className="flex flex-col font-medium">
             Quelle est la taille de l'écran ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color "
               required
-              name="screensize_id"
+              name="screen_size_id"
               type="text"
               onChange={(event) =>
                 handlePhone(event.target.name, +event.target.value)
@@ -332,10 +355,10 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="State" className="flex flex-col font-semibold">
+          <label htmlFor="State" className="flex flex-col font-medium">
             Quel est l'état de l'appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color  "
               required
               name="state_id"
               type="text"
@@ -350,7 +373,7 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="IMEI" className="flex flex-col font-semibold">
+          <label htmlFor="IMEI" className="flex flex-col font-medium">
             Quel est le numéro IMEI de votre appareil ?
             <input
               required
@@ -368,54 +391,52 @@ function Estimation() {
           </label>
 
           <div className="pt-10">
-            <p className="pb-5 font-bold">Accessoires fournis :</p>
+            <p className="pb-5 font-medium">Accessoires fournis :</p>
             <div className="topping flex">
               <input
-                className=""
                 type="checkbox"
-                id="topping"
-                name="topping"
-                value="Chargeur"
+                name="Chargeur"
+                value={isChargerIncluded}
+                onChange={handleCheckboxChange}
               />
               <p className="pl-2">Chargeur</p>
             </div>
             <div className="topping flex">
               <input
-                className=""
                 type="checkbox"
-                id="topping"
-                name="topping"
-                value="Cable"
+                name="Cable"
+                value={isCableIncluded}
+                onChange={handleCheckboxChange}
               />
               <p className="pl-2">Cable</p>
             </div>
           </div>
-          <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-            <div className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white">
+          <div className="flex justify-end pt-5 pb-5">
+            <div className="items-end rounded-full pt-2 text-text_color font-semibold">
               Prix estimé : {price} €
             </div>
           </div>
-          {isSalable() && phone.IMEI !== "" && (
-            <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-              <button
-                type="submit"
-                className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
-              >
-                Ajouter
-              </button>
-            </div>
-          )}
-
-          {!isSalable() && phone.IMEI !== "" && (
-            <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-              <button
-                type="submit"
-                className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
-              >
-                Recycler
-              </button>
-            </div>
-          )}
+          <div className="flex justify-end items-end pt-5 pb-5">
+            <button
+              onClick={notify}
+              type="submit"
+              className="items-end first-line:items-end rounded-full bg-light_blue py-3 px-6 text-white"
+            >
+              Enregistrer
+            </button>
+            <ToastContainer
+              position="top-center"
+              autoClose={6000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
+          </div>
         </form>
       </div>
       <div className="w-5/12">

@@ -1,3 +1,4 @@
+-- SQLBook: Code
 -- Active: 1684940650999@@127.0.0.1@3306@hackathon_2
 DROP TABLE IF EXISTS phones;
 
@@ -93,7 +94,7 @@ VALUES ('Apple', 2) ,('Samsung',1),('Google',1),('Xiaomi',1),('Fairphone',1),('S
 
 
 INSERT INTO models (name, image_src, image_alt, brands_id)
-VALUES ('iPhone 14 Pro','https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-7inch-gold?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1663703841907', 'iphone14 pro',1);
+VALUES ('iPhone 14 Pro','https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d1eh9yux7w8iql.cloudfront.net/product_images/781137_66072400-f3bc-43cf-8156-ffb427cb9666.jpg', 'iphone14 pro',1);
 
 INSERT INTO models (name, image_src, image_alt, brands_id)
 VALUES ('iPhone 14', 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch-blue_AV1_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1661026557363', 'iphone14', 1);
@@ -111,7 +112,7 @@ INSERT INTO models (name, image_src, image_alt, brands_id)
 VALUES ('Pixel 7a', 'https://lh3.googleusercontent.com/c0-y34SreBdah151k6_alm1d5myI_bzTLcmM47QcdcNz8WxJzqMJpKRVI5FK-EQeq41t7NxQNXTKgpZw7xQmehvYSkqfeReTL9A=rw-e365-nu-w1050', 'Pixel 7a', 3);
 
 INSERT INTO models (name, image_src, image_alt, brands_id)
-VALUES ('Pixel 6a', 'https://cdn.lesnumeriques.com/optim/product/68/68543/8e091488-pixel-6a__450_400.jpeg', 'Pixel 6a', 3);
+VALUES ('Pixel 6a', 'https://fr.mytrendyphone.be/images/Nillkin-Super-Frosted-Shield-Case-for-Google-Pixel-6a-Blue-12072022-01-p.webp', 'Pixel 6a', 3);
 
 INSERT INTO models (name, image_src, image_alt, brands_id)
 VALUES ('Xiaomi 13 Pro', 'https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1677132762.26493129!800x800!85.png', 'Xiaomi 13 Pro', 4);

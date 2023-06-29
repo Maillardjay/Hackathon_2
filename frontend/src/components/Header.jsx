@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 function Header() {
@@ -18,20 +18,57 @@ function Header() {
           </Link>
           <div>
             <ul className="flex flex-row text-center font-medium p-2 mt-2 rounded bg-gray-50 ">
-              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/">Accueil</Link>
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose">
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-rose font-bold underline underline-offset-4 decoration-solid"
+                      : ""
+                  }
+                >
+                  Accueil
+                </NavLink>
               </li>
-              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/estimation">Estimer un téléphone</Link>
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose">
+                <NavLink
+                  to="/estimation"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-rose font-bold underline underline-offset-4 decoration-solid"
+                      : ""
+                  }
+                >
+                  Estimer un téléphone
+                </NavLink>
               </li>
-              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/stock">Consulter le stock</Link>
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose">
+                <NavLink
+                  to="/stock"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-rose font-bold underline underline-offset-4 decoration-solid"
+                      : ""
+                  }
+                >
+                  Consulter le stock
+                </NavLink>
               </li>
-              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/faq">FAQ</Link>
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose">
+                <NavLink
+                  to="/faq"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-rose font-bold underline underline-offset-4 decoration-solid"
+                      : ""
+                  }
+                >
+                  FAQ
+                </NavLink>
               </li>
             </ul>
           </div>
+          <hr className="border-t-2 border-blue mr-6 ml-6  min-[600px]:hidden" />
         </div>
       </nav>
     </div>
