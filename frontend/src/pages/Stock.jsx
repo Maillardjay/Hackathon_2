@@ -12,7 +12,7 @@ function Stock() {
 
   return (
     <div>
-      <h1 className="mt-8 mb-2 text-center block text-xl font-semibold text-primary text-text_color">
+      <h1 className="mt-8 mb-2 text-center block text-xl font-semibold text-text_color">
         Voici les téléphones actuellement disponibles :
       </h1>
       <div className="flex flex-wrap text-center justify-center text-text_color">
@@ -28,7 +28,7 @@ function Stock() {
                 alt={phone.phone_image_alt}
               />
             </div>
-            <div className="">
+            <div className="flex flex-col justify-end">
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">
                   {phone.phone_model} | {phone.phone_brand}
