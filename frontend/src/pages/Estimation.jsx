@@ -1,6 +1,10 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { ToastContainer, toast } from "react-toastify";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "react-toastify/dist/ReactToastify.css";
 import Scene from "../Scene";
 
 function Estimation() {
@@ -187,6 +191,8 @@ function Estimation() {
     });
   };
 
+  const notify = () => toast("Le téléphone a bien été enregistré !");
+
   return (
     <div className="flex flex-wrap justify-around">
       <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-5/12">
@@ -198,11 +204,11 @@ function Estimation() {
           onSubmit={addPhone}
           className="flex flex-col justify-center mr-10 ml-10"
         >
-          <label htmlFor="Brand" className="flex flex-col font-semibold">
+          <label htmlFor="Brand" className="flex flex-col ">
             {" "}
             Quelle est la marque de l'appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 font-medium"
               required
               name="brand_id"
               type="text"
@@ -218,10 +224,10 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="Model" className="flex flex-col font-semibold">
+          <label htmlFor="Model" className="flex flex-col font-medium">
             Quel est le modèle de l'appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color "
               required
               name="model_id"
               type="text"
@@ -239,10 +245,10 @@ function Estimation() {
                 ))}
             </select>
           </label>
-          <label htmlFor="Model" className="flex flex-col font-semibold">
+          <label htmlFor="Model" className="flex flex-col font-medium">
             Quel est le système d'exploitation de votre appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color  "
               required
               name="os_id"
               type="text"
@@ -255,10 +261,10 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="Model" className="flex flex-col font-semibold">
+          <label htmlFor="Model" className="flex flex-col font-medium">
             Quel est le réseau de votre appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color  "
               required
               name="network_id"
               type="text"
@@ -274,7 +280,7 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="Storage" className="flex flex-col font-semibold">
+          <label htmlFor="Storage" className="flex flex-col font-medium">
             Quelle est sa capacité de stockage ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
@@ -293,7 +299,7 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="RAM" className="flex flex-col font-semibold">
+          <label htmlFor="RAM" className="flex flex-col font-medium">
             De combien de Ram dispose t-il ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
@@ -312,10 +318,10 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="Screen" className="flex flex-col font-semibold">
+          <label htmlFor="Screen" className="flex flex-col font-medium">
             Quelle est la taille de l'écran ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color "
               required
               name="screen_size_id"
               type="text"
@@ -331,10 +337,10 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="State" className="flex flex-col font-semibold">
+          <label htmlFor="State" className="flex flex-col font-medium">
             Quel est l'état de l'appareil ?
             <select
-              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+              className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-text_color  "
               required
               name="state_id"
               type="text"
@@ -349,7 +355,7 @@ function Estimation() {
               ))}
             </select>
           </label>
-          <label htmlFor="IMEI" className="flex flex-col font-semibold">
+          <label htmlFor="IMEI" className="flex flex-col font-medium">
             Quel est le numéro IMEI de votre appareil ?
             <input
               required
@@ -367,7 +373,7 @@ function Estimation() {
           </label>
 
           <div className="pt-10">
-            <p className="pb-5 font-bold">Accessoires fournis :</p>
+            <p className="pb-5 font-medium">Accessoires fournis :</p>
             <div className="topping flex">
               <input
                 type="checkbox"
@@ -387,18 +393,31 @@ function Estimation() {
               <p className="pl-2">Cable</p>
             </div>
           </div>
-          <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-            <div className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white">
+          <div className="flex justify-end pt-5 pb-5">
+            <div className="items-end rounded-full pt-2 text-text_color font-semibold">
               Prix estimé : {price} €
             </div>
           </div>
-          <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
+          <div className="flex justify-end items-end pt-5 pb-5">
             <button
+              onClick={notify}
               type="submit"
-              className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
+              className="items-end first-line:items-end rounded-full bg-light_blue py-3 px-6 text-white"
             >
               Enregistrer
             </button>
+            <ToastContainer
+              position="top-center"
+              autoClose={6000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
           </div>
         </form>
       </div>
