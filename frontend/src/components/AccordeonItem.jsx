@@ -31,7 +31,7 @@ function AccordionItem({ header, text }) {
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-text_color">{header}</h4>
+          <h4 className="text-lg font-medium text-text_color">{header}</h4>
         </div>
       </button>
 

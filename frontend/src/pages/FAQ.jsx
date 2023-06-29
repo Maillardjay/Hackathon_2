@@ -3,7 +3,7 @@ import AccordionItem from "../components/AccordeonItem";
 
 function Accordion() {
   return (
-    <section className="text-text_color relative z-20 overflow-hidden bg-white pt-15 pb-5 lg:pt-[120px] lg:pb-[90px]">
+    <section className="text-text_color relative z-20 overflow-hidden bg-white pt-15 pb-5">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
@@ -18,7 +18,7 @@ function Accordion() {
           </div>
         </div>
 
-        <div className="flex flex-wrap">
+        <div className="flex">
           <div className="w-full px-4 mr-8 lg:w-1/2">
             <AccordionItem
               header="Comment vérifier le modèle de l'appareil ?"
