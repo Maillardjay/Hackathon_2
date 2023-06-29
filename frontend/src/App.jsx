@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Estimation from "./pages/Estimation";
 import FAQ from "./pages/FAQ";
 import Page404 from "./pages/Page404";
+import Stock from "./pages/Stock";
 
 import AdminLayout from "./pages/layout/AdminLayout";
 import HomeAdmin from "./components/Admin/HomeAdmin";
@@ -18,8 +19,9 @@ function App() {
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Home />} />
           <Route path="/estimation" element={<Estimation />} />
+          <Route path="/stock" element={<Stock />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/404" element={<Page404 />} />
+          <Route path="*" element={<Page404 />} />
         </Route>
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="" element={<HomeAdmin />} />
