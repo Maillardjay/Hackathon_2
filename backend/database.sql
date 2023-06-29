@@ -1,3 +1,4 @@
+-- SQLBook: Code
 -- Active: 1684940650999@@127.0.0.1@3306@hackathon_2
 DROP TABLE IF EXISTS phones;
 
