@@ -14,24 +14,32 @@ function Estimation() {
   const [oss, setOss] = useState([]);
   const [price, setPrice] = useState(0);
 
-  const [phone, setPhone] = useState({
-    brand: "",
-    model: "",
-    os: "",
-    network: "",
-    storage: "",
-    ram: "",
-    screensize: "",
-    state: "",
-    IMEI: "",
+  const [brand, setBrand] = useState({
+    brand_id: "",
   });
+
+  const [phone, setPhone] = useState({
+    IMEI: "",
+    is_loader_included: 0,
+    is_cable_included: 0,
+    model_id: "",
+    network_id: "",
+    RAM_id: "",
+    storage_id: "",
+    screensize_id: "",
+    state_id: "",
+  });
+
+  const handleBrand = (name, value) => {
+    setBrand({ ...brand, [name]: value });
+  };
 
   const handlePhone = (name, value) => {
     setPhone({ ...phone, [name]: value });
   };
 
   const isSalable = () => {
-    return phone.ram >= 6 && phone.storage >= 16 && phone.state !== "DEEE";
+    return phone.RAM_id >= 5 && phone.storage_id >= 1 && phone.state_id !== 1;
   };
 
   const estimatePrice = () => {
@@ -44,41 +52,41 @@ function Estimation() {
     let valStorage = 0;
     let ponderation = 0;
 
-    if (phone.ram <= 6) {
+    if (phone.RAM_id === 5) {
       valRam = 90;
-    } else if (phone.ram <= 8) {
+    } else if (phone.RAM_id === 6) {
       valRam = 110;
-    } else if (phone.ram <= 12) {
+    } else if (phone.RAM_id === 7) {
       valRam = 140;
-    } else if (phone.ram <= 16) {
+    } else if (phone.RAM_id === 8) {
       valRam = 200;
     } else {
       valRam = 250;
     }
 
-    if (phone.storage === 16) {
+    if (phone.storage_id === 1) {
       valStorage = 31;
-    } else if (phone.storage <= 32) {
+    } else if (phone.storage_id === 2) {
       valStorage = 45;
-    } else if (phone.storage <= 64) {
+    } else if (phone.storage_id === 3) {
       valStorage = 66;
-    } else if (phone.storage <= 128) {
+    } else if (phone.storage_id === 4) {
       valStorage = 80;
-    } else if (phone.storage <= 256) {
+    } else if (phone.storage_id === 5) {
       valStorage = 100;
-    } else if (phone.storage <= 512) {
+    } else if (phone.storage_id === 6) {
       valStorage = 120;
-    } else if (phone.storage <= 1000) {
+    } else {
       valStorage = 150;
     }
 
-    if (phone.state === "Réparable") {
+    if (phone.state_id === 2) {
       ponderation = 0.5;
-    } else if (phone.state === "Bloqué") {
+    } else if (phone.state_id === 3) {
       ponderation = 0.9;
-    } else if (phone.state === "Reconditionnable") {
+    } else if (phone.state_id === 4) {
       ponderation = 0.95;
-    } else if (phone.state === "Reconditionné") {
+    } else if (phone.state_id === 5) {
       ponderation = 1;
     }
 
@@ -180,16 +188,17 @@ function Estimation() {
             Quelle est la marque de l'appareil ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
-              name="brand"
+              required
+              name="brand_id"
               type="text"
               onChange={(event) =>
-                handlePhone(event.target.name, event.target.value)
+                handleBrand(event.target.name, +event.target.value)
               }
             >
               <option className="opacity-50">Marque</option>
-              {brands.map((brand) => (
-                <option key={brand.id} value={brand.id}>
-                  {brand.name}
+              {brands.map((bra) => (
+                <option key={bra.id} value={bra.id}>
+                  {bra.name}
                 </option>
               ))}
             </select>
@@ -198,17 +207,18 @@ function Estimation() {
             Quel est le modèle de l'appareil ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
-              name="model"
+              required
+              name="model_id"
               type="text"
               onChange={(event) =>
-                handlePhone(event.target.name, event.target.value)
+                handlePhone(event.target.name, +event.target.value)
               }
             >
               <option value="">Modèle</option>
               {models
-                .filter((mod) => +mod.brands_id === +phone.brand)
+                .filter((mod) => +mod.brands_id === +brand.brand_id)
                 .map((model) => (
-                  <option key={model.id} value={model.name}>
+                  <option key={model.id} value={model.id}>
                     {model.name}
                   </option>
                 ))}
@@ -218,15 +228,13 @@ function Estimation() {
             Quel est le système d'exploitation de votre appareil ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
-              name="os"
+              required
+              name="os_id"
               type="text"
-              onChange={(event) =>
-                handlePhone(event.target.name, event.target.value)
-              }
             >
               <option value="">Os</option>
               {oss.map((os) => (
-                <option key={os.id} value={os.name}>
+                <option key={os.id} value={os.id}>
                   {os.name}
                 </option>
               ))}
@@ -236,15 +244,16 @@ function Estimation() {
             Quel est le réseau de votre appareil ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
-              name="network"
+              required
+              name="network_id"
               type="text"
               onChange={(event) =>
-                handlePhone(event.target.name, event.target.value)
+                handlePhone(event.target.name, +event.target.value)
               }
             >
               <option value="">Réseau</option>
               {networks.map((network) => (
-                <option key={network.id} value={network.name}>
+                <option key={network.id} value={network.id}>
                   {network.name}
                 </option>
               ))}
@@ -254,7 +263,8 @@ function Estimation() {
             Quelle est sa capacité de stockage ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
-              name="storage"
+              required
+              name="storage_id"
               type="text"
               onChange={(event) =>
                 handlePhone(event.target.name, +event.target.value)
@@ -262,7 +272,7 @@ function Estimation() {
             >
               <option value="">Stockage</option>
               {storages.map((storage) => (
-                <option key={storage.id} value={storage.capacity}>
+                <option key={storage.id} value={storage.id}>
                   {storage.capacity}
                 </option>
               ))}
@@ -272,7 +282,8 @@ function Estimation() {
             De combien de Ram dispose t-il ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
-              name="ram"
+              required
+              name="RAM_id"
               type="text"
               onChange={(event) =>
                 handlePhone(event.target.name, +event.target.value)
@@ -280,7 +291,7 @@ function Estimation() {
             >
               <option value="">RAM</option>
               {rams.map((ram) => (
-                <option key={ram.id} value={ram.name}>
+                <option key={ram.id} value={ram.id}>
                   {ram.name}
                 </option>
               ))}
@@ -290,7 +301,8 @@ function Estimation() {
             Quelle est la taille de l'écran ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
-              name="screensize"
+              required
+              name="screensize_id"
               type="text"
               onChange={(event) =>
                 handlePhone(event.target.name, +event.target.value)
@@ -298,7 +310,7 @@ function Estimation() {
             >
               <option>Taille de l'écran</option>
               {screensizes.map((screensize) => (
-                <option key={screensize.id} value={screensize.size}>
+                <option key={screensize.id} value={screensize.id}>
                   {screensize.size}
                 </option>
               ))}
@@ -308,14 +320,15 @@ function Estimation() {
             Quel est l'état de l'appareil ?
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
-              name="state"
+              required
+              name="state_id"
               type="text"
               onChange={(event) =>
-                handlePhone(event.target.name, event.target.value)
+                handlePhone(event.target.name, +event.target.value)
               }
             >
               {states.map((state) => (
-                <option key={state.id} value={state.name}>
+                <option key={state.id} value={state.id}>
                   {state.name}
                 </option>
               ))}
@@ -333,7 +346,7 @@ function Estimation() {
               name="IMEI"
               value={phone.IMEI}
               onChange={(event) =>
-                handlePhone(event.target.name, event.target.value)
+                handlePhone(event.target.name, +event.target.value)
               }
             />
           </label>
@@ -376,18 +389,18 @@ function Estimation() {
               </button>
             </div>
           )}
-        </form>
 
-        {!isSalable() && phone.IMEI !== "" && (
-          <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-            <button
-              type="button"
-              className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
-            >
-              Recycler
-            </button>
-          </div>
-        )}
+          {!isSalable() && phone.IMEI !== "" && (
+            <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
+              <button
+                type="submit"
+                className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
+              >
+                Recycler
+              </button>
+            </div>
+          )}
+        </form>
       </div>
       <div className="w-5/12">
         <Canvas>
