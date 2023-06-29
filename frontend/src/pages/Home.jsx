@@ -27,7 +27,7 @@ function Home() {
                 alt=""
               />
               <a href="#!">
-                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100" />
               </a>
             </div>
             <div className="p-6">
@@ -50,7 +50,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700">
+        <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700 max-[820px]:w-full ">
           <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
             <div
               className="relative overflow-hidden bg-cover bg-no-repeat"
@@ -58,12 +58,12 @@ function Home() {
               data-te-ripple-color="light"
             >
               <img
-                className="rounded-t-lg w-full h-[20rem]"
+                className="rounded-t-lg h-[20rem] w-full max-[820px]:h-max"
                 src="https://www.emmaus-solidarite.org/wp-content/uploads/2023/06/349339013_998547811527845_2334973619273808857_n-709x399.jpg"
                 alt=""
               />
               <a href="#!">
-                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100" />
               </a>
             </div>
             <div className="p-6">
@@ -87,7 +87,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700">
+        <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700 max-[820px]:w-full ">
           <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
             <div
               className="relative overflow-hidden bg-cover bg-no-repeat"
@@ -100,7 +100,7 @@ function Home() {
                 alt=""
               />
               <a href="#!">
-                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100" />
               </a>
             </div>
             <div className="p-6">
@@ -141,7 +141,7 @@ function Home() {
                 alt=""
               />
               <a href="#!">
-                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100" />
               </a>
             </div>
             <div className="p-6">
@@ -164,7 +164,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700">
+        <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700 max-[820px]:w-full ">
           <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
             <div
               className="relative overflow-hidden bg-cover bg-no-repeat"
@@ -177,7 +177,7 @@ function Home() {
                 alt=""
               />
               <a href="#!">
-                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100" />
               </a>
             </div>
             <div className="p-6">
@@ -200,7 +200,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700">
+        <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700 max-[820px]:w-full ">
           <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
             <div
               className="relative overflow-hidden bg-cover bg-no-repeat"
@@ -213,7 +213,7 @@ function Home() {
                 alt=""
               />
               <a href="#!">
-                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100" />
               </a>
             </div>
             <div className="p-6">
