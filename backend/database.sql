@@ -111,7 +111,7 @@ INSERT INTO models (name, image_src, image_alt, brands_id)
 VALUES ('Pixel 7a', 'https://lh3.googleusercontent.com/c0-y34SreBdah151k6_alm1d5myI_bzTLcmM47QcdcNz8WxJzqMJpKRVI5FK-EQeq41t7NxQNXTKgpZw7xQmehvYSkqfeReTL9A=rw-e365-nu-w1050', 'Pixel 7a', 3);
 
 INSERT INTO models (name, image_src, image_alt, brands_id)
-VALUES ('Pixel 6a', 'https://cdn.lesnumeriques.com/optim/product/68/68543/8e091488-pixel-6a__450_400.jpeg', 'Pixel 6a', 3);
+VALUES ('Pixel 6a', 'https://fr.mytrendyphone.be/images/Nillkin-Super-Frosted-Shield-Case-for-Google-Pixel-6a-Blue-12072022-01-p.webp', 'Pixel 6a', 3);
 
 INSERT INTO models (name, image_src, image_alt, brands_id)
 VALUES ('Xiaomi 13 Pro', 'https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1677132762.26493129!800x800!85.png', 'Xiaomi 13 Pro', 4);
