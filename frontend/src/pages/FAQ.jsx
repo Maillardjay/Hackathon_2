@@ -3,7 +3,7 @@ import AccordionItem from "../components/AccordeonItem";
 
 function Accordion() {
   return (
-    <section className="text-text_color relative z-20 overflow-hidden bg-white pt-15 pb-5 mb-12">
+    <section className="text-text_color relative z-20 overflow-hidden bg-white pt-15 pb-5">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
@@ -38,6 +38,14 @@ Sinon, allez dans Réglages > Général > Informations et vous trouverez le nom 
               header="Comment nous contacter pour vous aider ?"
               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Interdum varius sit amet mattis vulputate enim. Elit at imperdiet dui accumsan sit."
             />
+            <AccordionItem
+              header="Que faire si le modèle que je souhaite enregistrer n'est pas référencé ?"
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Interdum varius sit amet mattis vulputate enim. Elit at imperdiet dui accumsan sit."
+            />
+            <AccordionItem
+              header="Comment suggérer une amélioration de cette plateforme ?"
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Interdum varius sit amet mattis vulputate enim. Elit at imperdiet dui accumsan sit."
+            />
           </div>
           <div className="w-full px-4 mr-8 lg:w-1/2">
             <AccordionItem
@@ -55,6 +63,14 @@ Sinon, allez dans Réglages > Général > Informations et vous trouverez le nom 
             <AccordionItem
               header="Comment nous contacter pour vous aider ?"
               text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+            />
+            <AccordionItem
+              header="Que faire si le modèle que je souhaite enregistrer n'est pas référencé ?"
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Interdum varius sit amet mattis vulputate enim. Elit at imperdiet dui accumsan sit."
+            />
+            <AccordionItem
+              header="Comment suggérer une amélioration de cette plateforme ?"
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Interdum varius sit amet mattis vulputate enim. Elit at imperdiet dui accumsan sit."
             />
           </div>
         </div>
