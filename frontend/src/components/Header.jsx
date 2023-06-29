@@ -34,9 +34,6 @@ function Header() {
           </div>
         </div>
       </nav>
-      <div>
-        <hr className="border-t-2 border-dark_blue mr-6 ml-6 " />
-      </div>
     </div>
   );
 }
