@@ -18,41 +18,49 @@ function Header() {
           </Link>
           <div>
             <ul className="flex flex-row text-center font-medium p-2 mt-2 rounded bg-gray-50 ">
-              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose">
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    isActive ? "text-rose font-bold" : ""
+                    isActive
+                      ? "text-rose font-bold underline underline-offset-4 decoration-solid"
+                      : ""
                   }
                 >
                   Accueil
                 </NavLink>
               </li>
-              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose">
                 <NavLink
                   to="/estimation"
                   className={({ isActive }) =>
-                    isActive ? "text-rose font-bold" : ""
+                    isActive
+                      ? "text-rose font-bold underline underline-offset-4 decoration-solid"
+                      : ""
                   }
                 >
                   Estimer un téléphone
                 </NavLink>
               </li>
-              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose">
                 <NavLink
                   to="/stock"
                   className={({ isActive }) =>
-                    isActive ? "text-rose font-bold" : ""
+                    isActive
+                      ? "text-rose font-bold underline underline-offset-4 decoration-solid"
+                      : ""
                   }
                 >
                   Consulter le stock
                 </NavLink>
               </li>
-              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose">
                 <NavLink
                   to="/faq"
                   className={({ isActive }) =>
-                    isActive ? "text-rose font-bold" : ""
+                    isActive
+                      ? "text-rose font-bold underline underline-offset-4 decoration-solid"
+                      : ""
                   }
                 >
                   FAQ
