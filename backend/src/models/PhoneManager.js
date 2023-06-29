@@ -31,14 +31,26 @@ class PhoneManager extends AbstractManager {
     INNER JOIN screen_size AS s ON s.id = p.screen_size_id
     INNER JOIN states AS st ON st.id = p.state_id
     INNER JOIN storages AS stg ON stg.id = p.storage_id
-    `
+    ORDER BY phone_id ASC`
     );
   }
 
   insert(phone) {
-    return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      phone.title,
-    ]);
+    return this.database.query(
+      `insert into ${this.table} (IMEI, is_loader_included, is_cable_included, model_id, network_id, RAM_id, storage_id, screen_size_id, state_id, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        phone.IMEI,
+        phone.is_loader_included,
+        phone.is_cable_included,
+        phone.model_id,
+        phone.network_id,
+        phone.RAM_id,
+        phone.storage_id,
+        phone.screen_size_id,
+        phone.state_id,
+        phone.price,
+      ]
+    );
   }
 
   update(phone) {

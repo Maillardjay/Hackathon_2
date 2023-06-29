@@ -4,6 +4,18 @@ import { OrbitControls } from "@react-three/drei";
 import Scene from "../Scene";
 
 function Estimation() {
+  const phoneModel = {
+    IMEI: "",
+    is_loader_included: "0",
+    is_cable_included: "0",
+    model_id: "",
+    network_id: "",
+    RAM_id: "",
+    storage_id: "",
+    screen_size_id: "",
+    state_id: "",
+  };
+
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
   const [networks, setNetworks] = useState([]);
@@ -18,17 +30,7 @@ function Estimation() {
     brand_id: "",
   });
 
-  const [phone, setPhone] = useState({
-    IMEI: "",
-    is_loader_included: 0,
-    is_cable_included: 0,
-    model_id: "",
-    network_id: "",
-    RAM_id: "",
-    storage_id: "",
-    screensize_id: "",
-    state_id: "",
-  });
+  const [phone, setPhone] = useState(phoneModel);
 
   const handleBrand = (name, value) => {
     setBrand({ ...brand, [name]: value });
@@ -166,8 +168,12 @@ function Estimation() {
 
   const addPhone = (event) => {
     event.preventDefault();
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/phones`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/phone`, {
       method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ ...phone, price }),
     });
   };
@@ -302,7 +308,7 @@ function Estimation() {
             <select
               className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
               required
-              name="screensize_id"
+              name="screen_size_id"
               type="text"
               onChange={(event) =>
                 handlePhone(event.target.name, +event.target.value)
