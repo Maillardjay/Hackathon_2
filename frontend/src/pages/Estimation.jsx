@@ -12,6 +12,7 @@ function Estimation() {
   const [screensizes, setScreensizes] = useState([]);
   const [states, setStates] = useState([]);
   const [oss, setOss] = useState([]);
+  const [price, setPrice] = useState(0);
 
   const [phone, setPhone] = useState({
     brand: "",
@@ -25,8 +26,6 @@ function Estimation() {
     IMEI: "",
   });
 
-  const [price, setPrice] = useState(0);
-
   const handlePhone = (name, value) => {
     setPhone({ ...phone, [name]: value });
   };
@@ -37,7 +36,7 @@ function Estimation() {
 
   const estimatePrice = () => {
     if (!isSalable()) {
-      console.info("non vendable");
+      setPrice(0);
       return;
     }
 
@@ -157,6 +156,14 @@ function Estimation() {
     getOss();
   }, []);
 
+  const addPhone = (event) => {
+    event.preventDefault();
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/phones`, {
+      method: "POST",
+      body: JSON.stringify({ ...phone, price }),
+    });
+  };
+
   return (
     <div className="flex flex-wrap justify-around">
       <div className="flex flex-col justify-center text-text_color h-full drop shadow-xl m-8 rounded-lg shadow-grey w-5/12">
@@ -164,7 +171,10 @@ function Estimation() {
           Enregistrement de l'appareil
         </h1>
 
-        <form className="flex flex-col justify-center mr-10 ml-10">
+        <form
+          onSubmit={addPhone}
+          className="flex flex-col justify-center mr-10 ml-10"
+        >
           <label htmlFor="Brand" className="flex flex-col font-semibold">
             {" "}
             Quelle est la marque de l'appareil ?
@@ -178,7 +188,7 @@ function Estimation() {
             >
               <option className="opacity-50">Marque</option>
               {brands.map((brand) => (
-                <option key={brand.id} value={brand.name}>
+                <option key={brand.id} value={brand.id}>
                   {brand.name}
                 </option>
               ))}
@@ -195,11 +205,13 @@ function Estimation() {
               }
             >
               <option value="">Modèle</option>
-              {models.map((model) => (
-                <option key={model.id} value={model.name}>
-                  {model.name}
-                </option>
-              ))}
+              {models
+                .filter((mod) => +mod.brands_id === +phone.brand)
+                .map((model) => (
+                  <option key={model.id} value={model.name}>
+                    {model.name}
+                  </option>
+                ))}
             </select>
           </label>
           <label htmlFor="Model" className="flex flex-col font-semibold">
@@ -349,28 +361,23 @@ function Estimation() {
               <p className="pl-2">Cable</p>
             </div>
           </div>
+          {isSalable() && phone.IMEI !== "" && (
+            <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
+              <button
+                type="submit"
+                className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
+              >
+                Ajouter
+              </button>
+            </div>
+          )}
         </form>
         <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-          <button
-            type="button"
-            className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
-            name="name"
-            value={price}
-            onClick={(event) => estimatePrice(event.target.value)}
-          >
-            Estimer
-          </button>
-        </div>
-        {isSalable() && phone.IMEI !== "" && (
-          <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-            <button
-              type="button"
-              className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
-            >
-              Ajouter
-            </button>
+          <div className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white">
+            Prix estimé : {price} €
           </div>
-        )}
+        </div>
+
         {!isSalable() && phone.IMEI !== "" && (
           <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
             <button
