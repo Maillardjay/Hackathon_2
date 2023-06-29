@@ -1,7 +1,8 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Scene from "../Scene";
+import Scene2 from "../Scene2";
+import Scene1 from "../Scene1";
 
 function Estimation() {
   const [brands, setBrands] = useState([]);
@@ -170,6 +171,14 @@ function Estimation() {
       method: "POST",
       body: JSON.stringify({ ...phone, price }),
     });
+  };
+
+  const selectScene = () => {
+    if (brand.brand_id === 1) {
+      return <Scene1 />;
+    } else if (brand.brand_id === 2) {
+      return <Scene2 />;
+    }
   };
 
   return (
@@ -407,7 +416,8 @@ function Estimation() {
           <ambientLight />
           <OrbitControls />
           <Suspense fallback={null}>
-            <Scene />
+            {selectScene()}
+            {/* <Scene2 /> */}
           </Suspense>
         </Canvas>
       </div>
