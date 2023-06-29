@@ -68,6 +68,7 @@ function Header() {
               </li>
             </ul>
           </div>
+          <hr className="border-t-2 border-blue mr-6 ml-6  min-[600px]:hidden" />
         </div>
       </nav>
     </div>
