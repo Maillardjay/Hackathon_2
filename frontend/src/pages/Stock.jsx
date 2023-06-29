@@ -12,8 +12,8 @@ function Stock() {
 
   return (
     <div>
-      <h1 className="m-2 block text-lg text-center">
-        Voici les téléphones actuellement disponibles
+      <h1 className="mt-8 mb-2 text-center block text-lg font-semibold text-primary">
+        Voici les téléphones actuellement disponibles :
       </h1>
       <div className="flex flex-wrap">
         {phones.map((phone) => (
