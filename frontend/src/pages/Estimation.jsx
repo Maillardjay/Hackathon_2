@@ -361,6 +361,11 @@ function Estimation() {
               <p className="pl-2">Cable</p>
             </div>
           </div>
+          <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
+            <div className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white">
+              Prix estimé : {price} €
+            </div>
+          </div>
           {isSalable() && phone.IMEI !== "" && (
             <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
               <button
@@ -372,11 +377,6 @@ function Estimation() {
             </div>
           )}
         </form>
-        <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-          <div className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white">
-            Prix estimé : {price} €
-          </div>
-        </div>
 
         {!isSalable() && phone.IMEI !== "" && (
           <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
