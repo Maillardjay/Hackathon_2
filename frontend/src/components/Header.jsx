@@ -17,7 +17,7 @@ function Header() {
             />
           </Link>
           <div>
-            <ul className="flex flex-row font-medium p-2 mt-2 rounded bg-gray-50">
+            <ul className="flex flex-row text-center font-medium p-2 mt-2 rounded bg-gray-50 ">
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
                 <Link to="/">Accueil</Link>
               </li>
