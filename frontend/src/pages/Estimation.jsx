@@ -4,8 +4,6 @@ import { OrbitControls } from "@react-three/drei";
 import Scene1 from "../Scene1";
 import Scene2 from "../Scene2";
 import Scene3 from "../Scene3";
-import Scene4 from "../Scene4";
-import Scene5 from "../Scene5";
 
 function Estimation() {
   const [brands, setBrands] = useState([]);
@@ -185,18 +183,6 @@ function Estimation() {
     }
     if (brand.brand_id === 3) {
       return <Scene3 />;
-    }
-    if (brand.brand_id === 4) {
-      return <Scene4 />;
-    }
-    if (brand.brand_id === 5) {
-      return <Scene5 />;
-    }
-    if (brand.brand_id === 6) {
-      return <Scene6 />;
-    }
-    if (brand.brand_id === 7) {
-      return <Scene7 />;
     }
     if (brand.brand_id === null) return null;
   };

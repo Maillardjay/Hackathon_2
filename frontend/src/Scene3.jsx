@@ -2,13 +2,13 @@
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/scene.gltf");
+  const { nodes, materials } = useGLTF("Scene3/scene.gltf");
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group rotation={[Math.PI / 2, 0, 0]}>
-          <group position={[-0.04, 0.08, -0.01]}>
+        <group rotation={[Math.PI / 2, 0, 0]} scale={0.05}>
+          <group scale={600}>
             <mesh
               geometry={nodes.Object_4.geometry}
               material={materials["Material.003"]}
