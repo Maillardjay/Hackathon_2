@@ -10,9 +10,16 @@ function Questions({ question, answer }) {
 
   return (
     <div>
-      <button type="button" onClick={toggleExpand}>
-        {question}
-      </button>
+      <div className="flex flex-col justify-center mr-10 ml-10">
+        <button
+          type="button"
+          onClick={toggleExpand}
+          className="flex flex-col font-semibold"
+        >
+          {question}
+        </button>
+        <p>+</p>
+      </div>
       <div>{expanded && <Answers answer={answer} />}</div>
     </div>
   );
