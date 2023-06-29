@@ -1,8 +1,9 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Scene2 from "../Scene2";
 import Scene1 from "../Scene1";
+import Scene2 from "../Scene2";
+import Scene4 from "../Scene4";
 
 function Estimation() {
   const [brands, setBrands] = useState([]);

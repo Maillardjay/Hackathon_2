@@ -1,0 +1,11 @@
+Model Information:
+* title:	Google Pixel 7 Pro
+* source:	https://sketchfab.com/3d-models/google-pixel-7-pro-3d5d6ad9b86c462f94bf1d0b08295b30
+* author:	Imaginequad (https://sketchfab.com/Imaginequad)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Google Pixel 7 Pro" (https://sketchfab.com/3d-models/google-pixel-7-pro-3d5d6ad9b86c462f94bf1d0b08295b30) by Imaginequad (https://sketchfab.com/Imaginequad) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
