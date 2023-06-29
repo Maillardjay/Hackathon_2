@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="header">
       <nav>
-        <div className="flex flex-wrap min-[320px]:flex-col min-[450px]:flex-row items-center justify-between mx-auto p-2 ">
+        <div className="flex flex-wrap min-[320px]:flex-col min-[450px]:flex-row items-center justify-between mr-8 ml-8 ">
           <img
             src={logo}
             className="w-40 mr-3 pt-3 pb-3 max-[435px]:w-15
@@ -29,9 +29,6 @@ function Header() {
           </div>
         </div>
       </nav>
-      <div>
-        <hr className="border-t-2 border-dark_blue mr-6 ml-6 " />
-      </div>
     </div>
   );
 }
