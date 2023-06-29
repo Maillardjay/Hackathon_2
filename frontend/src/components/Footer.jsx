@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="bg-rose min-[320px]:flex-col flex min-[450px]:flex-row items-center justify-between">
+    <div className="w-full bg-rose min-[320px]:flex-col flex min-[450px]:flex-row items-center justify-between">
       <div className="p-4">
         <p className="text-sm text-gray-500 sm:text-center text-white">
           © 2023 Emmaüs Connect™ All Rights Reserved.
