@@ -174,6 +174,7 @@ function Estimation() {
     });
   };
 
+  // eslint-disable-next-line consistent-return
   const selectScene = () => {
     if (brand.brand_id === 1) {
       return <Scene1 />;
