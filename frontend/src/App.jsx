@@ -18,8 +18,8 @@ function App() {
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Home />} />
           <Route path="/estimation" element={<Estimation />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="*" element={<FAQ />} />
+          <Route path="/faq" element={<FAQbis />} />
+          <Route path="*" element={<Page404 />} />
         </Route>
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="" element={<HomeAdmin />} />
