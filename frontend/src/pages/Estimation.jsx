@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Scene1 from "../Scene1";
 import Scene2 from "../Scene2";
+import Scene3 from "../Scene3";
 import Scene4 from "../Scene4";
 
 function Estimation() {
