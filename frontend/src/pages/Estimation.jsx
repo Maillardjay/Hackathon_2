@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Scene from "../Scene";
 
 function Estimation() {
@@ -186,6 +188,8 @@ function Estimation() {
       body: JSON.stringify({ ...phone, price }),
     });
   };
+
+  const notify = () => toast("Le téléphone a bien été enregistré !");
 
   return (
     <div className="flex flex-wrap justify-around">
@@ -394,11 +398,24 @@ function Estimation() {
           </div>
           <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
             <button
+              onClick={notify}
               type="submit"
-              className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
+              className="items-end ml-10 rounded-full bg-light_blue py-3 px-6 text-white"
             >
               Enregistrer
             </button>
+            <ToastContainer
+              position="top-center"
+              autoClose={6000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
           </div>
         </form>
       </div>
