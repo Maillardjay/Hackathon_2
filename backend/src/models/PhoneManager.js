@@ -7,33 +7,31 @@ class PhoneManager extends AbstractManager {
 
   findAll() {
     return this.database.query(
-      `select
+      `SELECT
       p.id as phone_id,
-      brands.name as phone_brand,
-      models.name as phone_model,
-      p.image_src as phone_image_src,
-      p.image_alt as phone_image_alt,
+      b.name as phone_brand,
+      m.name as phone_model,
+      m.image_src as phone_image_src,
+      m.image_alt as phone_image_alt,
       p.IMEI as phone_IMEI,
       p.is_loader_included as phone_loader,
       p.is_cable_included as phone_cable,
-      networks.name as phone_network,
+      n.name as phone_network,
       os.name as phone_os,
-      ram.name as phone_ram,
-      screen_size.size as phone_size,
-      states.name as phone_state,
-      storages.capacity as phone_storage
-
-      from phones as p
-
-      inner join models ON models.id = p.model_id
-      inner join brands ON brands.id = models.brands_id
-      inner join networks ON networks.id = p.network_id
-      inner join os ON os.id = p.os_id
-      inner join ram ON ram.id = p.ram_id
-      inner join screen_size ON screen_size.id = p.screen_size_id
-      inner join states ON states.id = p.state_id
-      inner join storages ON storages.id = p.storage_id
-      `
+      r.name as phone_ram,
+      s.size as phone_size,
+      st.name as phone_state,
+      stg.capacity as phone_storage
+    FROM phones AS p
+    INNER JOIN models AS m ON m.id = p.model_id
+    INNER JOIN brands AS b ON b.id = m.brands_id
+    INNER JOIN networks AS n ON n.id = p.network_id
+    INNER JOIN os ON os.id = b.os_id
+    INNER JOIN ram AS r ON r.id = p.RAM_id
+    INNER JOIN screen_size AS s ON s.id = p.screen_size_id
+    INNER JOIN states AS st ON st.id = p.state_id
+    INNER JOIN storages AS stg ON stg.id = p.storage_id
+    `
     );
   }
 
