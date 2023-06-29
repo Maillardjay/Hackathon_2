@@ -9,8 +9,6 @@ import Scene1 from "../Scene1";
 import Scene2 from "../Scene2";
 import Scene3 from "../Scene3";
 
-
-
 function Estimation() {
   const phoneModel = {
     IMEI: "",
@@ -177,7 +175,6 @@ function Estimation() {
       })
       .catch((err) => console.error(err));
   };
-  
   // eslint-disable-next-line consistent-return
   const selectScene = () => {
     if (brand.brand_id === 1) {
