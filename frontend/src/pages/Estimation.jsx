@@ -6,8 +6,8 @@ import Scene from "../Scene";
 function Estimation() {
   const phoneModel = {
     IMEI: "",
-    is_loader_included: "0",
-    is_cable_included: "0",
+    is_loader_included: "",
+    is_cable_included: "",
     model_id: "",
     network_id: "",
     RAM_id: "",
@@ -25,19 +25,28 @@ function Estimation() {
   const [states, setStates] = useState([]);
   const [oss, setOss] = useState([]);
   const [price, setPrice] = useState(0);
-
   const [brand, setBrand] = useState({
     brand_id: "",
   });
-
   const [phone, setPhone] = useState(phoneModel);
+  const [isChargerIncluded, setIsChargerIncluded] = useState(false);
+  const [isCableIncluded, setIsCableIncluded] = useState(false);
 
   const handleBrand = (name, value) => {
     setBrand({ ...brand, [name]: value });
   };
-
   const handlePhone = (name, value) => {
     setPhone({ ...phone, [name]: value });
+  };
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    if (name === "Chargeur") {
+      setIsChargerIncluded(checked);
+      setPhone({ ...phone, is_loader_included: checked ? "1" : "0" });
+    } else if (name === "Cable") {
+      setIsCableIncluded(checked);
+      setPhone({ ...phone, is_cable_included: checked ? "1" : "0" });
+    }
   };
 
   const isSalable = () => {
@@ -361,21 +370,19 @@ function Estimation() {
             <p className="pb-5 font-bold">Accessoires fournis :</p>
             <div className="topping flex">
               <input
-                className=""
                 type="checkbox"
-                id="topping"
-                name="topping"
-                value="Chargeur"
+                name="Chargeur"
+                value={isChargerIncluded}
+                onChange={handleCheckboxChange}
               />
               <p className="pl-2">Chargeur</p>
             </div>
             <div className="topping flex">
               <input
-                className=""
                 type="checkbox"
-                id="topping"
-                name="topping"
-                value="Cable"
+                name="Cable"
+                value={isCableIncluded}
+                onChange={handleCheckboxChange}
               />
               <p className="pl-2">Cable</p>
             </div>
@@ -385,27 +392,14 @@ function Estimation() {
               Prix estimé : {price} €
             </div>
           </div>
-          {isSalable() && phone.IMEI !== "" && (
-            <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-              <button
-                type="submit"
-                className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
-              >
-                Ajouter
-              </button>
-            </div>
-          )}
-
-          {!isSalable() && phone.IMEI !== "" && (
-            <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
-              <button
-                type="submit"
-                className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
-              >
-                Recycler
-              </button>
-            </div>
-          )}
+          <div className="flex justify-end pt-5 pb-5 pr-10 gap-10">
+            <button
+              type="submit"
+              className="items-end ml-10 rounded-full bg-rose py-3 px-6 text-white"
+            >
+              Enregistrer
+            </button>
+          </div>
         </form>
       </div>
       <div className="w-5/12">
