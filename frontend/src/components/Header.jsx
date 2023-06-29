@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 function Header() {
@@ -19,16 +19,44 @@ function Header() {
           <div>
             <ul className="flex flex-row text-center font-medium p-2 mt-2 rounded bg-gray-50 ">
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/">Accueil</Link>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "text-rose font-bold" : ""
+                  }
+                >
+                  Accueil
+                </NavLink>
               </li>
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/estimation">Estimer un téléphone</Link>
+                <NavLink
+                  to="/estimation"
+                  className={({ isActive }) =>
+                    isActive ? "text-rose font-bold" : ""
+                  }
+                >
+                  Estimer un téléphone
+                </NavLink>
               </li>
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/stock">Consulter le stock</Link>
+                <NavLink
+                  to="/stock"
+                  className={({ isActive }) =>
+                    isActive ? "text-rose font-bold" : ""
+                  }
+                >
+                  Consulter le stock
+                </NavLink>
               </li>
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
-                <Link to="/faq">FAQ</Link>
+                <NavLink
+                  to="/faq"
+                  className={({ isActive }) =>
+                    isActive ? "text-rose font-bold" : ""
+                  }
+                >
+                  FAQ
+                </NavLink>
               </li>
             </ul>
           </div>
