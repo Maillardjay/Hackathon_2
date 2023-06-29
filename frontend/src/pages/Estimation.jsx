@@ -1,7 +1,9 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { ToastContainer, toast } from "react-toastify";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import "react-toastify/dist/ReactToastify.css";
 import Scene from "../Scene";
 
