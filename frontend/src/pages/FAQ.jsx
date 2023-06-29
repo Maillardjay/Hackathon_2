@@ -18,7 +18,7 @@ function Accordion() {
           </div>
         </div>
 
-        <div className="flex">
+        <div className="flex flex-wrap min-[820px]:flex-nowrap ">
           <div className="w-full px-4 mr-8 lg:w-1/2">
             <AccordionItem
               header="Comment vérifier le modèle de l'appareil ?"
