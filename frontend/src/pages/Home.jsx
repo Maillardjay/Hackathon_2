@@ -11,7 +11,7 @@ function Home() {
         />
       </div>
       <h2 className="text-2xl text-rose pb-5 pt-10 font-bold tracking-wide">
-        Actualité Association
+        Actualités Association
       </h2>
       <div className="flex flex-wrap justify-between max-[820px]:flex-col">
         <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700 max-[820px]:w-full ">
@@ -73,7 +73,7 @@ function Home() {
               <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
                 Une expérience de l’Intelligence Artificielle et de l’étrange,
                 née de la collaboration inédite entre Vera Molnár, pionnière de
-                l’art numérique et aurèce vettier, projet hybride de Paul
+                l’art numérique et Aurèce Vettier, projet hybride de Paul
                 Mouginot.
               </p>
               <button
@@ -110,7 +110,7 @@ function Home() {
               <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
                 Dans un jardin de plus de trois hectares, où est aménagé un
                 centre d’hébergement. Un lieu bucolique et insolite, une
-                programmation associant ecobaldes et sons de la nature.
+                programmation associant ecobalades et sons de la nature.
               </p>
               <button
                 type="button"
@@ -125,7 +125,7 @@ function Home() {
         </div>
       </div>
       <h2 className="text-2xl text-rose pb-5 pt-10 font-bold tracking-wide">
-        Actualité HighTech
+        Actualités HighTech
       </h2>
       <div className="flex flex-wrap justify-between max-[820px]:flex-col">
         <div className="w-1/3 pb-5 pr-5 animate-fade-down animate-once animate-duration-800 animate-delay-700 max-[820px]:w-full ">
@@ -222,7 +222,7 @@ function Home() {
               </h5>
               <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
                 Après un premier semestre marqué pour Xiaomi par le lancement de
-                la série 13, le second devrait l'être par celui des smartphone
+                la série 13, le second devrait l'être par celui des smartphones
                 13T et 13T Pro.
               </p>
               <button
