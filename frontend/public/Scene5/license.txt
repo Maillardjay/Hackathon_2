@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sony Xperia M2
+* source:	https://sketchfab.com/3d-models/sony-xperia-m2-88b4bc4e8633469e89bac68b83b01c6a
+* author:	Regex (https://sketchfab.com/Regex)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sony Xperia M2" (https://sketchfab.com/3d-models/sony-xperia-m2-88b4bc4e8633469e89bac68b83b01c6a) by Regex (https://sketchfab.com/Regex) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
