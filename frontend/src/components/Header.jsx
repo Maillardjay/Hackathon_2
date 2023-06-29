@@ -23,6 +23,9 @@ function Header() {
                 <Link to="/estimation">Estimer un téléphone</Link>
               </li>
               <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
+                <Link to="/stock">Consulter le stock</Link>
+              </li>
+              <li className="block py-2 pl-3 pr-2 text-text_color rounded hover:text-rose focus:text-rose">
                 <Link to="/faq">FAQ</Link>
               </li>
             </ul>
