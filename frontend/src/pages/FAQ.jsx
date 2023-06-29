@@ -3,12 +3,12 @@ import AccordionItem from "../components/AccordeonItem";
 
 function Accordion() {
   return (
-    <section className="text-text_color relative z-20 overflow-hidden bg-white pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+    <section className="text-text_color relative z-20 overflow-hidden bg-white pt-15 pb-20 lg:pt-[120px] lg:pb-[90px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-              <span className="mb-2 block text-lg font-semibold text-primary">
+              <span className="mb-2 block text-lg font-semibold text-primary mt-8">
                 FAQ
               </span>
               <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl max-[450px]:mx-3 md:text-[40px]">
