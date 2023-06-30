@@ -193,7 +193,6 @@ function Estimation() {
     });
   };
 
-
   // eslint-disable-next-line consistent-return
   const selectScene = () => {
     if (brand.brand_id === 1) {
@@ -209,7 +208,6 @@ function Estimation() {
   };
 
   const notify = () => toast("Le téléphone a bien été enregistré !");
-
 
   return (
     <div className="flex flex-wrap justify-around">
