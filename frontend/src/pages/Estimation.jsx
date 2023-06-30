@@ -439,7 +439,7 @@ function Estimation() {
           <div className="flex justify-end items-end pt-5 pb-5">
             {phone.IMEI && (
               <button
-                onClick={{handleSubmitToast}}
+                onClick={{ handleSubmitToast }}
                 type="submit"
                 className="items-end first-line:items-end rounded-full bg-light_blue py-3 px-6 text-white"
               >
