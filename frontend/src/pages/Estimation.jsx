@@ -437,7 +437,7 @@ function Estimation() {
             </div>
           </div>
           <div className="flex justify-end pt-5 pb-5">
-            <div className="items-end rounded-full pt-2 text-text_color font-semibold">
+            <div className="items-end rounded-full pt-2 text-text_color font-semibold text-xl">
               Prix estimé : {price} €
             </div>
           </div>
