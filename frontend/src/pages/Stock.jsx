@@ -31,12 +31,11 @@ function Stock() {
       <h1 className="mt-8 mb-2 text-center block text-xl font-semibold text-text_color">
         Voici les téléphones actuellement disponibles :
       </h1>
-      <label htmlFor="Brand" className="flex flex-col ">
+      <label htmlFor="Brand" className="flex justify-around ">
         {" "}
-        Selectionner le statut de l'appareil
         <select
           value={phone.phone_state}
-          className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+          className=" text-xl flex border rounded-md border-cyan-500 h-8 w-3/12 mt-5 mb-5 pl-2 text-cyan-500 "
           required
           name="phone_state"
           type="text"
@@ -85,16 +84,16 @@ function Stock() {
                   </p>
                 </div>
                 <div className="px-6 pt-4 pb-2">
-                  <span className="inline-block bg-light_blue rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                  <span className="inline-block border border-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-cyan-500 mr-2 mb-2">
                     {p.phone_network}
                   </span>
-                  <span className="inline-block bg-light_blue rounded-full px-3 py-1 text-sm font-semibold textbg-light_blue-700] mr-2 mb-2">
+                  <span className="inline-block border border-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-cyan-500 mr-2 mb-2">
                     {p.phone_os}
                   </span>
-                  <span className="inline-block bg-light_blue rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                  <span className="inline-block border border-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-cyan-500 mr-2 mb-2">
                     {p.phone_storage} Go
                   </span>
-                  <span className="inline-block bg-light_blue rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                  <span className="inline-block border border-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-cyan-500 mr-2 mb-2">
                     {p.phone_price} €
                   </span>
                 </div>
