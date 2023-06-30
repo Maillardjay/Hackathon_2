@@ -31,12 +31,11 @@ function Stock() {
       <h1 className="mt-8 mb-2 text-center block text-xl font-semibold text-text_color">
         Voici les téléphones actuellement disponibles :
       </h1>
-      <label htmlFor="Brand" className="flex flex-col ">
+      <label htmlFor="Brand" className="flex justify-around ">
         {" "}
-        Selectionner le statut de l'appareil
         <select
           value={phone.phone_state}
-          className="border rounded-md border-black h-10 mt-5 mb-5 pl-2 text-black "
+          className="flex border rounded-md border-black h-7 w-2/12 mt-5 mb-5 pl-2 text-black "
           required
           name="phone_state"
           type="text"
