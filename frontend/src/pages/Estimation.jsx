@@ -3,11 +3,11 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ToastContainer, toast } from "react-toastify";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import "react-toastify/dist/ReactToastify.css";
 import Scene1 from "../Scene1";
 import Scene2 from "../Scene2";
 import Scene3 from "../Scene3";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "react-toastify/dist/ReactToastify.css";
 
 function Estimation() {
   const phoneModel = {
@@ -176,6 +176,7 @@ function Estimation() {
       })
       .catch((err) => console.error(err));
   };
+
   // eslint-disable-next-line consistent-return
   const selectScene = () => {
     if (brand.brand_id === 1) {
@@ -190,7 +191,33 @@ function Estimation() {
     if (brand.brand_id === null) return null;
   };
 
-  const notify = () => toast("Le téléphone a bien été enregistré !");
+  const handleSubmitToast = (event) => {
+    event.preventDefault();
+
+    if (phone.IMEI === "") {
+      toast("Merci de remplir tout les champs pour enregistrer un téléphone.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      toast("Le téléphone a bien été enregistré !", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
 
   return (
     <div className="flex flex-wrap justify-around">
@@ -405,14 +432,14 @@ function Estimation() {
             </div>
           </div>
           <div className="flex justify-end pt-5 pb-5">
-            <div className="items-end rounded-full pt-2 text-text_color font-semibold">
+            <div className="items-end rounded-full pt-2 text-text_color font-semibold text-xl">
               Prix estimé : {price} €
             </div>
           </div>
           <div className="flex justify-end items-end pt-5 pb-5">
             {phone.IMEI && (
               <button
-                onClick={notify}
+                onClick={{ handleSubmitToast }}
                 type="submit"
                 className="items-end first-line:items-end rounded-full bg-light_blue py-3 px-6 text-white"
               >
@@ -444,4 +471,5 @@ function Estimation() {
     </div>
   );
 }
+
 export default Estimation;
