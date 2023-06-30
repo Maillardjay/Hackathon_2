@@ -70,7 +70,7 @@ function Header() {
           </div>
         </div>
       </nav>
-      <hr class="h-0.5 bg-cyan-400 border-0 mx-10" />
+      <hr className="h-0.5 bg-cyan-400 border-0 mx-10" />
     </div>
   );
 }
