@@ -8,7 +8,7 @@ function Accordion() {
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] text-center lg:mb-20">
-              <span className="mb-2 block text-lg font-semibold text-light_blue mt-8">
+              <span className="mb-2 block text-lg font-semibold text-[#06B6D4] mt-8">
                 FAQ
               </span>
               <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl max-[450px]:mx-3 md:text-[40px]">
