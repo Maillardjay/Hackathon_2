@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="header">
       <nav>
-        <div className="flex flex-wrap min-[320px]:flex-col min-[635px]:flex-row items-center justify-between mx-auto p-2 ">
+        <div className="flex flex-wrap min-[320px]:flex-col min-[635px]:flex-row items-center justify-between m-10 p-2 underline-offset-8 ">
           <Link to="/">
             <img
               src={logo}
@@ -68,9 +68,9 @@ function Header() {
               </li>
             </ul>
           </div>
-          <hr className="border-t-2 border-blue mr-6 ml-6  min-[600px]:hidden" />
         </div>
       </nav>
+      <hr class="h-0.5 bg-cyan-400 border-0 mx-10" />
     </div>
   );
 }
