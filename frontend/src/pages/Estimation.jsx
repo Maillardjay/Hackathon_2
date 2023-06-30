@@ -172,6 +172,7 @@ function Estimation() {
         });
         setPrice(0);
         getData();
+        setIsCableIncluded(!event.target.checked);
       })
       .catch((err) => console.error(err));
   };
@@ -409,13 +410,15 @@ function Estimation() {
             </div>
           </div>
           <div className="flex justify-end items-end pt-5 pb-5">
-            <button
-              onClick={notify}
-              type="submit"
-              className="items-end first-line:items-end rounded-full bg-light_blue py-3 px-6 text-white"
-            >
-              Enregistrer
-            </button>
+            {phone.IMEI && (
+              <button
+                onClick={notify}
+                type="submit"
+                className="items-end first-line:items-end rounded-full bg-light_blue py-3 px-6 text-white"
+              >
+                Enregistrer
+              </button>
+            )}
             <ToastContainer
               position="top-center"
               autoClose={6000}
