@@ -21,7 +21,8 @@ class PhoneManager extends AbstractManager {
       r.name as phone_ram,
       s.size as phone_size,
       st.name as phone_state,
-      stg.capacity as phone_storage
+      stg.capacity as phone_storage,
+      p.price as phone_price
     FROM phones AS p
     INNER JOIN models AS m ON m.id = p.model_id
     INNER JOIN brands AS b ON b.id = m.brands_id
