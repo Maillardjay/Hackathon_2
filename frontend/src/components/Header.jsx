@@ -23,7 +23,7 @@ function Header() {
                   to="/"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-rose font-bold underline underline-offset-8 decoration-solid"
+                      ? "text-rose font-bold underline underline-offset-8 decoration-2"
                       : ""
                   }
                 >
@@ -35,7 +35,7 @@ function Header() {
                   to="/estimation"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-rose font-bold underline underline-offset-8 decoration-4"
+                      ? "text-rose font-bold underline underline-offset-8 decoration-2"
                       : ""
                   }
                 >
@@ -47,7 +47,7 @@ function Header() {
                   to="/stock"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-rose font-bold underline underline-offset-8 decoration-4"
+                      ? "text-rose font-bold underline underline-offset-8 decoration-2"
                       : ""
                   }
                 >
@@ -59,7 +59,7 @@ function Header() {
                   to="/faq"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-rose font-bold underline underline-offset-8 decoration-4"
+                      ? "text-rose font-bold underline underline-offset-8 decoration-2"
                       : ""
                   }
                 >
