@@ -35,7 +35,7 @@ function Stock() {
         {" "}
         <select
           value={phone.phone_state}
-          className="flex border rounded-md border-black h-7 w-2/12 mt-5 mb-5 pl-2 text-black "
+          className=" text-xl flex border rounded-md border-cyan-500 h-8 w-3/12 mt-5 mb-5 pl-2 text-cyan-500 "
           required
           name="phone_state"
           type="text"
@@ -84,16 +84,16 @@ function Stock() {
                   </p>
                 </div>
                 <div className="px-6 pt-4 pb-2">
-                  <span className="inline-block bg-light_blue rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                  <span className="inline-block border border-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-cyan-500 mr-2 mb-2">
                     {p.phone_network}
                   </span>
-                  <span className="inline-block bg-light_blue rounded-full px-3 py-1 text-sm font-semibold textbg-light_blue-700] mr-2 mb-2">
+                  <span className="inline-block border border-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-cyan-500 mr-2 mb-2">
                     {p.phone_os}
                   </span>
-                  <span className="inline-block bg-light_blue rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                  <span className="inline-block border border-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-cyan-500 mr-2 mb-2">
                     {p.phone_storage} Go
                   </span>
-                  <span className="inline-block bg-light_blue rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                  <span className="inline-block border border-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-cyan-500 mr-2 mb-2">
                     {p.phone_price} €
                   </span>
                 </div>

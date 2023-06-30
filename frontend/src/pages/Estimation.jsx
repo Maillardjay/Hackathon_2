@@ -414,7 +414,7 @@ function Estimation() {
               <button
                 onClick={notify}
                 type="submit"
-                className="items-end first-line:items-end rounded-full bg-light_blue py-3 px-6 text-white"
+                className="items-end first-line:items-end rounded-full bg-cyan-500 py-3 px-6 text-white"
               >
                 Enregistrer
               </button>
